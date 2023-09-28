@@ -1,10 +1,25 @@
-Error code:
-00 Success
-50 Error exception
-40 Input invalid
-43 Access Deny
-30 You have reached your limit
-
+<h2>Error code:</h2>
+<table>
+    <tr>
+        <th>Code</th>
+        <th>Details</th>
+    </tr>
+    <tr>
+        <td>50</td>
+        <td>Error exception</td>
+    </tr>
+    <tr>
+        <td>40</td>
+        <td>Input invalid</td>
+    </tr>
+    <tr>
+        <td>43</td>
+        <td>Access Deny</td>
+    </tr>
+    <tr>
+        <td>30</td>
+        <td>You have reached your limit</td>
+    </tr>
 API money tracker
 Thành Phần API
 Lấy token
