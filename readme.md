@@ -21,7 +21,7 @@
         <td>30</td>
         <td>You have reached your limit</td>
     </tr>
-
+</table>
 <h4>Lấy token</h4>
 <div>localhost:3000/v1/get-token (gửi username & pass qua body form-data)</div>
 <div>sau khi lấy token thì đính kèm vào headers</div>
