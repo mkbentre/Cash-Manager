@@ -8,11 +8,12 @@ const Wallet = function(wallet) {
 }
 
 Wallet.CheckQtyWallet = function(data, result) {
-    db.query(`SELECT COUNT(user_id) as qty FROM wallets WHERE user_id = '${data}'`, function(err, Qty) {
+    db.query(`SELECT COUNT(user_id) as qty FROM wallets WHERE user_id = '${data}'`, function(err, qty) {
         if(err) {
-            result({err: err})
+            result({code: 'er'})
         }else{
-            result({err: qty})
+            result({code: 'ss', data: qty[0]})
+            
         }
     })
     
@@ -43,5 +44,15 @@ Wallet.Delete = function(data, result) {
 
 Wallet.Update = function(data, result) {
     // 
+}
+
+Wallet.GetWalletByID = function(data, result) {
+    db.query(`SELECT * FROM wallets WHERE user_id = ${data}`, function(err, response) {
+        if (err || response.length == 0) {
+            result({code: 'er'})
+        }else{
+            result({code: 'ss', data: response})
+        }
+    })
 }
 module.exports = Wallet

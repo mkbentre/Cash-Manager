@@ -9,3 +9,13 @@ const Transaction = function(transaction) {
     this.type       = transaction.type
     this.date       = transaction.date
 }
+
+Transaction.Create = function(data, result) {
+    db.query(`INSERT INTO transaction SET ?`, data, function(err, transaction) {
+        if(err) {
+            result({code: '50', desc: 'Create faill!', data: null})
+        }else{
+            result({code: '00', desc: 'Create Success!', data: transaction.insertId})
+        }
+    })
+}

@@ -1,16 +1,16 @@
 var Wallet = require('../models/wallet.model')
 exports.Create = function (req, res) {
     var data = {}
-    data.user_id = req.auth.data
+    data.user_id = req.auth.data.id
     data.wallet_name = req.body.wallet_name
     data.currency = req.body.currency
     if (data.wallet_name.length < 3) {
-        return res.send({ err: 'Wallet name invalid!' });
+        return res.send({ code: '40', desc: 'Wallet name invalid!', data: null });
     }
     try {
-        Wallet.CheckQtyWallet(user_id, function (response) {
-            if (response.qty > 10) {
-                return res.send({ err: 'You have created more than the allowed wallets' });
+        Wallet.CheckQtyWallet(data.user_id, function (response) {
+            if (response.data.qty > 9) {
+                return res.send({ code: '43', desc: 'You have created more than the allowed wallets', data: null});
             } else {
                 if (data.currency == "VND" || data.currency == "USD") {
                     try {
@@ -18,15 +18,15 @@ exports.Create = function (req, res) {
                             res.send({ result: response });
                         });
                     } catch (error) {
-                        return res.send({ err: 'Create Wallet Fail' });
+                        return res.send({ code: '50', desc: 'Create Wallet Fail', data: null });
                     }
                 } else {
-                    return res.send({ err: 'Currency invalid' });
+                    return res.send({ code: '40', desc: 'Currency invalid', data: null });
                 }
             }
         })
     } catch (error) {
-        return res.send({ err: 'something went wrong!' });
+        return res.send({ code: '50', desc: 'something went wrong!', data: null });
     }
 }
 

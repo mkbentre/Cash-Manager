@@ -2,6 +2,7 @@ Error code:
 00 Success
 50 Error exception
 40 Input invalid
+43 Access Deny
 30 You have reached your limit
 
 API money tracker
