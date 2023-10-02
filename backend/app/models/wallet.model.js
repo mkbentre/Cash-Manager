@@ -55,4 +55,20 @@ Wallet.GetWalletByID = function(data, result) {
         }
     })
 }
+
+Wallet.GetOwnById = function(data, result) {
+    db.query(`SELECT * FROM wallets WHERE user_id=${data.user_id} AND id=${data.wallet_id}`, function(err, response) {
+        if(err) {
+            result({ code: '50', data: null })
+        }else{
+            if(response.length == 0) {
+                // result({ code: '40', data: null })
+                return result = '40'
+            }else{
+                // result({ code: '00', data: response })
+                return result = '00'
+            }
+        }
+    })
+}
 module.exports = Wallet

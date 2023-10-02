@@ -54,4 +54,14 @@ Cataloge.CheckExistName = function(data, result) {
         }
     })
 }
+
+Cataloge.GetCatalogeById = function(data, result) {
+    db.query(`SELECT * FROM cataloges WHERE id='${data}'`, function(err, cataloge) {
+        if(err) {
+            result({code: '50'})
+        }else{
+            result({code: '00', data: cataloge[0]})
+        }
+    })
+}
 module.exports = Cataloge
