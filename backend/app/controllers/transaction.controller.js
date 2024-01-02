@@ -66,3 +66,16 @@ exports.Create = function (req, res) {
 
     }
 }
+
+exports.GetByDay = function(req, res) {
+    date = req.body.date;
+    try {
+        Transaction.Getbyday(date, function(response) {
+            if(response.code == '00') {
+                res.send({ code: '00', desc: 'Get Success!', data: response})
+            }
+        })
+    } catch (error) {
+        
+    }
+}

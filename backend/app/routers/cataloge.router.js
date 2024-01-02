@@ -4,6 +4,6 @@ module.exports = function(router) {
     router.post(URL+'/create', catalogeController.Create)
     // router.post(URL+'/edit', catalogeController.Update)
     router.delete(URL+'/delete/:id', catalogeController.Delete)
-    router.get(URL+'/get-all', catalogeController.GetAll)
+    router.get(URL+'/getall', catalogeController.GetAll)
     router.post(URL+'/admin-create', catalogeController.AdminCreate)
 }

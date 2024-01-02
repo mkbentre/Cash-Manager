@@ -80,3 +80,17 @@ exports.Delete = function (req, res) {
     //     res.send({ code: '50', desc: 'Something wrong', data: null })
     // }
 }
+exports.GetAll = function(req, res) {
+    // console.log(req.auth);
+    try {
+        Wallet.GetAll(req.auth, function(response) {
+            if(response.code == '00') {
+                res.send({code: '00', desc: 'success', data: response})
+            }else{
+                res.send({ code: '40', desc: 'Not Found!', data: null })
+            }
+        });
+    } catch (error) {
+        res.send({ code: '50', desc: 'Something wrong', data: null })
+    }
+}

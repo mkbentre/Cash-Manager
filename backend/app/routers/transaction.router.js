@@ -4,6 +4,6 @@ module.exports = function(router) {
     router.post(URL+'/create', transactionController.Create)
     // router.post(URL+'/edit', transactionController.Update)
     // router.delete(URL+'/delete/:id', transactionController.Delete)
-    // router.get(URL+'/get-by-day', transactionController.GetByDay)
+    router.post(URL+'/get-by-day', transactionController.GetByDay)
     // router.get(URL+'get-select-day', transactionController.GetSelectDay)
 }

@@ -1,46 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta name="Description" content="Enter your description here"/>
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/all.min.css">
-<link rel="stylesheet" href="assets/css/style.css">
-<title>Money Tracker</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Money Tracker</title>
 </head>
-<body class="ml-3 mr-3">
-<header class=" mt-2 mb-3">
-    <div id="money-total">
-        3,456,789<span> đ</span>
-    </div>
-</header>
-<main>
-    <div class="dash">
-        <div class="row wallet">
-            <div class="col-6">
-                <span>Chọn Ví</span>
+
+<body class="">
+    <header class=" mt-2 mb-3 ml-3 mr-3">
+        <div id="chi-total">
+            Tổng chi hôm nay: <span class="total">3,456,789</span><span class="unit"> đ</span>
+        </div>
+    </header>
+    <main class="ml-3 mr-3">
+        <div class="dash pt-2 pb-2">
+            <div class="row wallet ">
+                <div class="col-6">
+                    <span>TM Của Khôi</span>
+                </div>
+                <div class="col-6 text-right">
+                    <span>
+                        1.000.000 <span class="unit">đ</span>
+                    </span>
+                </div>
             </div>
-            <div class="col-6">
-                <span>
-                    Xem tất cả
-                </span>
+            <hr>
+
+            <div class="row wallet">
+                <div class="col-6">
+                    <span>TM Của Duyên</span>
+                </div>
+                <div class="col-6 text-right">
+                    <span>
+                        1.000.000 <span class="unit">đ</span>
+                    </span>
+                </div>
             </div>
         </div>
         <hr>
-        <div class="selected-wallet row">
-            <div class="col-6 name">
-                <div>Ví Tiền Mặt</div>
-            </div>
-            <div class="col-6">
-                <div>123,456<span> đ</span></div>
+        <div class="transaction">
+            <h4>Giao dịch ngày:</h4>
+            <div class="row">
+                <div class="col-8"><input class="form-control" id="date-picker" type="date" value=""></div>
+                <div class="col-4"><button id="view" class="btn btn-success">XEM</button></div>
             </div>
         </div>
-    </div>
-</main>
-<script src="assets/js/jquery.slim.min.js"></script>
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
+        <div id="list"></div>
+    </main>
+    <footer>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Thêm giao dịch</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <label for="wallet">Nguồn tiền:</label>
+                        <select id="wallet" name="wallet" class="form-control">
+                            <option value="" disabled>Chọn Ví</option>
+                        </select>
+                        <label for="cataloge">Danh mục:</label>
+                        <select name="cataloge" id="cataloge" class="form-control">
+                            <option value="" disabled>Chọn danh mục</option>
+                        </select>
+                        <label for="cash">Số Tiền:</label>
+                        <input id="cash" type="number" class="form-control" name="cash">
+                        <label for="cre-date">Ngày: </label>
+                        <input id="cre-date" type="date" class="form-control" name="date" value="">
+                        <label for="note">Ghi Chú:</label>
+                        <input id="note" type="text" class="form-control" name="note">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info" data-dismiss="modal">Hủy bỏ</button>
+                        <button type="button" class="btn btn-primary" id="save-transaction">Lưu giao dịch</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="chan-trang">
+            <div class="row">
+                <div class="col-6 text-center mt-2">
+                    <span>Text</span>
+                </div>
+                <div class="col-6 text-center mt-2">
+                    <span>Thống Kê</span>
+                </div>
+            </div>
+        </div>
+        <div class="add-button">
+            <button id="add-btn" data-toggle="modal" data-target="#exampleModal" class="btn btn-cr">+</button>
+        </div>
+    </footer>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/myscript.js"></script>
 </body>
+
 </html>

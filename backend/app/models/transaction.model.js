@@ -31,4 +31,19 @@ Transaction.DeleteByWallet = function(data, result) {
         }
     })
 }
+
+Transaction.Getbyday = function(data, result) {
+    // console.log(data)
+    db.query(`SELECT cataloges.name, users.display_name, wallets.wallet_name, transaction.cash, transaction.note FROM transaction 
+            JOIN cataloges ON cataloges.id=transaction.cataloge_id 
+            JOIN users ON users.id=transaction.user_id 
+            JOIN wallets ON wallets.id=transaction.wallet_id
+            WHERE date LIKE '%${data}%'`, function(err, transaction) {
+        if(err) {
+            result({ code: '50', data: null })
+        }else{
+            result({ code: '00', data: transaction })
+        }
+    })
+}
 module.exports = Transaction

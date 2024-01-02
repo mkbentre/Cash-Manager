@@ -1,21 +1,95 @@
 body {
     background-color: #000;
 }
+
 div {
     color: #ccc
+}
+main {
+    margin-bottom: 100px;
 }
 .dash {
     background-color: #111;
     border-radius: 10px;
 }
-.dash > div {
+
+.dash>div {
     margin-left: 7px;
     margin-right: 7px;
 }
 
 hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #fff;
+}
+
+.unit {
+    color: red;
+}
+
+.total {
+    font-size: 1.2rem;
+    color: chocolate;
+}
+
+.add-button {
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.btn-cr {
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
+    background-color: green;
+    font-weight: bold;
+    color: white;
+    font-size: 2rem;
+    z-index: 2;
+}
+
+.date-ts {
+    font-size: 1.5rem;
+    color: chartreuse;
+}
+
+.text1>div {
+    color: coral;
+}
+
+.text2>div {
+    color: aqua;
+}
+.modal-content {
+    background-color: #a7beee;
+}
+.modal-title {
     color: #fff;
-    height: 2px;
-    width: 80%;
-    padding-bottom: 2px;
+}
+
+label {
+    color: rgb(8, 14, 49);
+    margin-top: 20px;
+    font-weight: bold;
+}
+#exampleModalLabel {
+    color: rgb(65, 50, 201);
+    font-weight: bold;
+}
+
+.chan-trang {
+    position: fixed;
+    background-color: #160bac;
+    width: 100%;
+    height: 50px;
+    bottom: 0px;
+    color: red;
+    z-index: 0;
+}
+.chan-trang span {
+    font-weight: bold;
+    color: #fff;
 }
